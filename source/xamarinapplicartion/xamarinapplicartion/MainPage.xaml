@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xamarinapplicartion.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style  TargetType="Button">
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="0,25"/>
+            </Style>
+            <Style TargetType="Frame" >
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="CornerRadius" Value=" 1"/>
+                <Setter Property="Grid.Column" Value="1"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+
+            </Style>
+            <Style TargetType="Label" x:Key="lblshow">
+
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontFamily" Value="Lobster-Regular"/>
+                <Setter Property="FontAttributes" Value="Italic"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
+
+            <Style TargetType="Entry">
+                <Setter Property="MinimumWidthRequest" Value="1"/>
+
+            </Style>
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Padding="20,20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="AMOUNT (₹)" Grid.Column="0"/>
+                <Frame  >
+
+                    <Entry Placeholder="Amount (₹)" x:Name="txtamt" Grid.Column="1" Keyboard="Numeric"/>
+                </Frame>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text=" RATE (%)" Grid.Column="0" FontSize="Small"/>
+                <Frame>
+
+                    <Entry Placeholder="Interest Rate" x:Name="txtint" Grid.Column="1"  Keyboard="Numeric" />
+
+                </Frame>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="TIME" Grid.Column="0"/>
+                <Frame>
+                    <Entry Placeholder="Time" x:Name="txttime" Grid.Column="1" Keyboard="Numeric"/>
+                </Frame>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    
+                </Grid.ColumnDefinitions>
+                <Button Text="Calculate" BackgroundColor="Green" Grid.Column="0"  TextColor="White"  Clicked="Button_Clicked" Padding="0,0,10,0"/>
+                <Button Text="Clear" BackgroundColor="Red" Grid.Column="1"  TextColor="White"  Clicked="Button_Clicked_1"/>
+            </Grid>
+
+            <StackLayout Grid.Row="5" Padding="10,2,10,2" BackgroundColor="Red" x:Name="show" IsVisible="false">
+                <Label Text="" Style="{StaticResource lblshow} "  x:Name="lblamt"/>
+                <Label Text="" Style="{StaticResource lblshow} "  x:Name="lblint"/>
+                <Label Text="" Style="{StaticResource lblshow} " x:Name="lbltime"/>
+                <Label Text="" Style="{StaticResource lblshow} "  x:Name="lblans"/>
+
+            </StackLayout>
+
+
+        </Grid>
+    </StackLayout>
+
+
+</ContentPage>
+
